@@ -1,0 +1,13 @@
+   
+      @extends("admin.layouts.header")
+      @section('content')
+		<div class="cright">
+			<div class="jumbotron">
+			  <h1>Hello, world!</h1>
+			  <p>...</p>
+			  
+		      {{Route::currentRouteName()}}
+			  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+			</div>
+		</div>
+     @endsection
