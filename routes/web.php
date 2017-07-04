@@ -49,7 +49,7 @@ Route::any('error', 'StudentController@error');
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin',
-	//'middleware' => ['activity01']
+	'middleware' => "auth"
 	],function() {
 
     //Route::get('user/index', ['uses' => 'UserController@index', 'as' => 'a-u-i']);

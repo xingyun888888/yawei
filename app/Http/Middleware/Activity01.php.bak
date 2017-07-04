@@ -25,9 +25,11 @@ class Activity01
 //            return redirect('home');
 //        }
 
-        $response = $next($request);
+  
 
-        //dd($response);
+       // $response = $next($request);
+
+       // dd($response);
 
 
         //echo '我是后置操作，将在方法全部执行完毕后执行 - ';

@@ -49,7 +49,7 @@ Route::any('error', 'StudentController@error');
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin',
-	//'middleware' => ['activity01']
+	'middleware' => ['auth','activity01']
 	],function() {
 
     //Route::get('user/index', ['uses' => 'UserController@index', 'as' => 'a-u-i']);
@@ -66,6 +66,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin',
 	}); 
 	Route::post("/carousel/update","CarouselController@update");
     Route::get("/carousel/remove/{id}","CarouselController@remove");
+
+
+   
+
+    
+    Route::get("/intro","IntroController@index");
+    Route::post("/intro/add","IntroController@add");
+    Route::get("/intro/add",function(){
+	   return view("/admin/introEdit")->with("title","编辑");
+	}); 
+	Route::post("/intro/update","IntroController@update");
+    Route::get("/intro/remove/{id}","IntroController@remove");
 
 
 
