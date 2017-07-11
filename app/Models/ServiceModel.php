@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceModel extends Model
 {
     //
-	
-	  //指定别的表名
-     public $table = 'service';
+	 public $table = 'service';
 	 public $timestamps = false;
 	 protected $fillable = array('id', 'service_img', 'service_smalltitle','service_bigtitle','service_describe');
 }

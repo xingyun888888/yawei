@@ -37,6 +37,7 @@
             <li><a  data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="{{Request::path()=='admin/index'?'active':''}}><span class="glyphicon glyphicon-picture"></span>首页 <b class="caret"></b></a></li>
             <li id="collapseOne" class="panel-collapse collapse son">
                <a href="/admin/carousel" class="{{Request::path()=='admin/carousel'?'active':''}}">轮播图</a>
+               <a href="/admin/home_small_img" class="{{Request::path()=='admin/home_small_img'?'active':''}}">底部小图</a>
              <!--   <a href="huodong_over.html">背景图</a>
                <a href="huodong_daishen.html">小图</a>
                <a href="huodong_pingjia.html">底部</a> -->
@@ -49,6 +50,7 @@
             <li id="collapseTwo" class="panel-collapse collapse son">
                <a href="{{url('/admin/team')}}">团队成员</a>
                <a href="{{url('/admin/intro')}}">团队介绍</a>
+               <a href="{{url('/admin/client')}}">我们的客户</a>
             </li>
             <li><a href="/admin/article"  data-url="{{Request::path()}}"  class="{{Request::path()=='admin/article'?'active':''}}"><span class="glyphicon glyphicon-file"></span>文章管理</a></li>
           </ul>

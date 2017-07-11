@@ -4,7 +4,7 @@
 
  <div class="cright">
 	<div class="action" style="margin:20px;">      
-			<a class="btn btn-success" href="/admin/service/add">新增</a>
+			<a class="btn btn-success" href="/admin/home_small_img/add">新增</a>
 			<button class="btn btn-info" type="submit" id="checkall" data-check="true">全选</button>
 	</div>
     <table class="table table-hover">
@@ -15,17 +15,17 @@
 	   <th class="text-center">链接</th>
 	   <th class="text-center">操作</th>
 	</tr>
-	@foreach($service as $item)
+	@foreach($homeSmallImgs as $item)
 	<tr class="active">         
 	  <td class="active text-center">{{$item->id}}</td>
 	  <td class="active text-center" style="width:200px;height:100px;">
-	     <img src="{{$item->service_img}}" alt="" style="width:100%;height:100%">
+	     <img src="{{$item->home_small_img}}" alt="" style="width:100%;height:100%">
 	  </td>
-	  <td class="active text-center">{{$item->service_smalltitle}}</td>
-	  <td class="active text-center">{{$_SERVER['HTTP_HOST'].$item->service_img}}</td>
+	  <td class="active text-center">{{$item->heme_small_img_small_title}}</td>
+	  <td class="active text-center">{{$_SERVER['HTTP_HOST'].$item->home_small_img}}</td>
 	  <td class="active text-center">
-	    <a href="{{url('/admin/service/remove/'.$item->id)}}">删除</a>
-	    <a href="{{url('/admin/service/remove/'.$item->id)}}">查看</a>
+	    <a href="{{url('/admin/home_small_img/remove/'.$item->id)}}">删除</a>
+	    <a href="{{url('/admin/home_small_img/remove/'.$item->id)}}">查看</a>
 	    <!-- <a href="/admin/carousel/update">编辑</a> -->
 	  </td>
     </tr>

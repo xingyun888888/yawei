@@ -97,6 +97,20 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin',
 
 	Route::get("/service","ServiceController@index");
     Route::post("/service/add","ServiceController@add");
+    Route::get("/service/add",function(){
+	   return view("/admin/serviceEdit")->with("title","编辑");
+	});
+	Route::post("/service/update","ServiceController@update");
+    Route::get("/service/remove/{id}","ServiceController@remove");
+
+	
+	Route::get("/home_small_img","HomeSmallImgController@index");
+    Route::post("/home_small_img/add","HomeSmallImgController@add");
+    Route::get("/home_small_img/add",function(){
+	   return view("/admin/homeSmallImgEdit")->with("title","编辑");
+	});
+	Route::post("/home_small_img/update","HomeSmallImgController@update");
+    Route::get("/home_small_img/remove/{id}","HomeSmallImgController@remove");
 
 
     Route::get("/team","TeamController@index");

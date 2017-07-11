@@ -9,33 +9,33 @@ use Illuminate\Http\Request;
 use Storage;
 
 
-use App\Models\ServiceModel;
+use App\Models\HomeSmallImgModel;
 
 use App\Http\Requests;
 
-class ServiceController extends Controller
+class HomeSmallImgController extends Controller
 {
     //
 	public function index(){
 	
 	  
-	  $service = ServiceModel::all();
-	  return view("/admin/service")->with(["title"=>"服务","service"=>$service]);
+	  $homeSmallImgs = HomeSmallImgModel::all();
+	  return view("/admin/homeSmallImg")->with(["title"=>"首页小图","homeSmallImgs"=>$homeSmallImgs]);
 	}
     
 	public function add(Request $request){	  
        if ($request->isMethod('post')) {
             $file = $request->file("picture");
             if($file)$url=$this->upload($file);
-			$smalltitle=$request->smalltitle;
-			$bigtitle=$request->bigltitle;
+			$smalltitle=$request->small_title;
+			$bigtitle=$request->big_title;
 			$describe=$request->service_describe;
             
-            $input = ["id"=>NULL,"service_img"=>$url,"service_smalltitle"=>$smalltitle,"service_bigtitle"=>$bigtitle,"service_describe"=>$describe];
+            $input = ["id"=>NULL,"home_small_img"=>$url,"home_small_img_small_title"=>$smalltitle,"home_small_img_big_title"=>$bigtitle];
 
-			$post =ServiceModel::create($input);
+			$post =HomeSmallImgModel::create($input);
             
-			return redirect("/admin/service");
+			return redirect("/admin/home_small_img");
             echo $url,$title,$describe;
 	   }
 	}
