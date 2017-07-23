@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/css/bootstrap.extension.css" rel="stylesheet" type="text/css" />
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/img/favicon.ico" />
-  	<title>IVY</title>
-</head>
-<body>
+@extends("layouts/header")
+@section("carousel")
     <!-- LOADER -->
     <div id="loader-wrapper"></div>
-
-    <!-- HEADER -->
-    <header class="type-3 transparent">
-	  @extends('layouts.header')
-    </header>
-
+@endsection
+@section("content")
     <div id="content-block">
 
         <div class="fixed-background" style="background-image: url(img/background-2.jpg);">
@@ -70,6 +52,22 @@
                     <div class="swiper-button-prev hidden"></div>
                     <div class="swiper-button-next hidden"></div>
                     <div class="swiper-wrapper">
+                    @foreach($carousels as $item )
+                        <div class="swiper-slide"> 
+                            <div class="text-center">
+                                <img class="thumbnail-image col-xs-b20" src="{{$item->url}}" alt="" />
+                                <h6 class="h6 col-xs-b10">{{$item->title}}</h6>
+                                <div class="sa middle">{{$item->describe}}</div>
+                            </div>
+                        </div>
+                    @endforeach    
+                   <!--      <div class="swiper-slide"> 
+                            <div class="text-center">
+                                <img class="thumbnail-image col-xs-b20" src="img/thumbnail-49.jpg" alt="" />
+                                <h6 class="h6 col-xs-b10">Your title image</h6>
+                                <div class="sa middle">Et harum quidem rerum facilis est et expedita distinctio.</div>
+                            </div>
+                        </div>
                         <div class="swiper-slide"> 
                             <div class="text-center">
                                 <img class="thumbnail-image col-xs-b20" src="img/thumbnail-46.jpg" alt="" />
@@ -83,21 +81,7 @@
                                 <h6 class="h6 col-xs-b10">Your title image</h6>
                                 <div class="sa middle">Et harum quidem rerum facilis est et expedita distinctio.</div>
                             </div>
-                        </div>
-                        <div class="swiper-slide"> 
-                            <div class="text-center">
-                                <img class="thumbnail-image col-xs-b20" src="img/thumbnail-46.jpg" alt="" />
-                                <h6 class="h6 col-xs-b10">Your title image</h6>
-                                <div class="sa middle">Et harum quidem rerum facilis est et expedita distinctio.</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide"> 
-                            <div class="text-center">
-                                <img class="thumbnail-image col-xs-b20" src="img/thumbnail-49.jpg" alt="" />
-                                <h6 class="h6 col-xs-b10">Your title image</h6>
-                                <div class="sa middle">Et harum quidem rerum facilis est et expedita distinctio.</div>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="swiper-pagination relative-pagination"></div>
                 </div>
@@ -106,17 +90,19 @@
         </div>
 
         <div class="row m0">
+        @foreach($homeSmallImgs as $item)
             <div class="col-sm-4">
                 <a class="thumbnail-shortcode-3 mouseover-1" href="#">
-                    <img src="img/thumbnail-56.jpg" alt="" />
-                    <img src="img/thumbnail-56.jpg" alt="" />
+                    <img src="{{$item->home_small_img}}" alt="" />
+                    <img src="{{$item->home_small_img}}" alt="" />
                     <span class="content">
-                        <span class="sl light">Fashion / Photoshooting</span>
-                        <span class="title h4 light">Great colours of  wild wind</span>
+                        <span class="sl light">{{$item->home_small_img_small_title}}</span>
+                        <span class="title h4 light">{{$item->home_small_img_big_title}}</span>
                     </span>
                 </a>
             </div>
-            <div class="col-sm-4">
+        @endforeach    
+     <!--        <div class="col-sm-4">
                 <a class="thumbnail-shortcode-3 mouseover-1" href="#">
                     <img src="img/thumbnail-57.jpg" alt="" />
                     <img src="img/thumbnail-57.jpg" alt="" />
@@ -135,7 +121,7 @@
                         <span class="title h4 light">Great colours of  wild wind</span>
                     </span>
                 </a>
-            </div>
+            </div> -->
         </div>
 
         <!-- FOOTER -->
@@ -262,6 +248,4 @@
     <script src="/js/global.js"></script>
 
     <script src="/js/isotope.pkgd.min.js"></script>
-
-</body>
-</html>
+@endsection

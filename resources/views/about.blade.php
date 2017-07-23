@@ -1,26 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/css/bootstrap.extension.css" rel="stylesheet" type="text/css" />
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/img/favicon.ico" />
-  	<title>亚淮设计</title>
-</head>
-<body>
-    <!-- LOADER -->
-    <div id="loader-wrapper"></div>
-    <!-- HEADER -->
-    <header class="type-3 transparent">
-	   @extends('layouts.header')
-    </header>
+@extends("layouts.header")
 
+@section("carousel")
+    <div id="loader-wrapper"></div>
+
+@endsection    
+@section("content")
     <div id="content-block">
 
         <div class="fixed-background" style="background-image: url(img/background-3.jpg);">
@@ -244,10 +228,12 @@
                 </div>
             </div>
             <div class="row">
+            @foreach($clients as $item)
                 <div class="col-xs-6 col-sm-3">
-                    <a href="#" class="client-logo mouseover-2"><img src="img/client-logo-1.jpg" alt="" /></a>
+                    <a href="#" class="client-logo mouseover-2"><img src="{{$item->client_img}}" alt="" /></a>
                 </div>
-                <div class="col-xs-6 col-sm-3">
+            @endforeach    
+               <!--  <div class="col-xs-6 col-sm-3">
                     <a href="#" class="client-logo mouseover-2"><img src="img/client-logo-2.jpg" alt="" /></a>
                 </div>
                 <div class="col-xs-6 col-sm-3">
@@ -267,7 +253,7 @@
                 </div>
                 <div class="col-xs-6 col-sm-3">
                     <a href="#" class="client-logo mouseover-2"><img src="img/client-logo-8.jpg" alt="" /></a>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -394,6 +380,4 @@
     <script src="/js/swiper.jquery.min.js"></script>
     <script src="/js/global.js"></script>
     <script src="/js/isotope.pkgd.min.js"></script>
-
-</body>
-</html>
+@endsection("content")

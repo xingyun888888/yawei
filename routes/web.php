@@ -11,31 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', "IndexController@index");
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/index',"IndexController@index");
 
 
-Route::get('/service',function(){
-   return view("service");
-
-});
-Route::get('/contact',function(){
-   return view("contact");
-
-});
-Route::get('/about',function(){
-   return view("about");
-
-});
-Route::get('/portfolio',function(){
-   return view("portfolio");
-
-});
+Route::get('/service',"ServiceController@index");
+Route::get('/contact',"ConcatController@index");
+Route::get('/about',"AboutController@index");
+Route::get('/portfolio',"PortfolioController@index");
 
 Auth::routes();
 
@@ -111,6 +95,15 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin',
 	});
 	Route::post("/home_small_img/update","HomeSmallImgController@update");
     Route::get("/home_small_img/remove/{id}","HomeSmallImgController@remove");
+
+	
+	Route::get("/client","ClientController@index");
+    Route::post("/client/add","ClientController@add");
+    Route::get("/client/add",function(){
+	   return view("/admin/clientEdit")->with("title","编辑");
+	});
+	Route::post("/client/update","ClientController@update");
+    Route::get("/client/remove/{id}","ClientController@remove");
 
 
     Route::get("/team","TeamController@index");

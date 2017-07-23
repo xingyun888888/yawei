@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ClientModel extends Model
+{
+    //
+	public $table="client";
+	public $timestamps = false;
+	protected $filltable = array("id","client_img","client_title");
+}

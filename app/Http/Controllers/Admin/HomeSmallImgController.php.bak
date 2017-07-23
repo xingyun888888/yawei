@@ -35,12 +35,12 @@ class HomeSmallImgController extends Controller
 
 			$post =HomeSmallImgModel::create($input);
             
-			return redirect("/admin/home-small-img");
+			return redirect("/admin/home_small_img");
             echo $url,$title,$describe;
 	   }
 	}
 	public function update(){
-	   $service = ServiceModel::all();
+	   $service = HomeSmallImgModel::all();
 	   //dd($carousel[0]=>attributes);
        foreach($servicee as $item){
 	     var_dump($item->title);
@@ -49,7 +49,7 @@ class HomeSmallImgController extends Controller
 	}
 
 	public function remove(Request $request,$id){
-	   $service = ServiceModel::find($id);
+	   $homeSmallImg = HomeSmallImgModel::find($id);
 	   if($service->delete()){
 	     echo "删除成功";
 	   

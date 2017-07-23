@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/css/bootstrap.extension.css" rel="stylesheet" type="text/css" />
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="img/favicon.ico" />
-  	<title>IVY</title>
-</head>
-<body>
-    <!-- LOADER -->
+@extends("layouts/header")
+
+@section("carousel")
     <div id="loader-wrapper"></div>
-
-    <!-- HEADER -->
-    <header class="type-3 transparent">
-	   @extends('layouts.header')
-    </header>
-
+@endsection
+@section("content")
     <div id="content-block">
 
         <div class="container-fluid">
@@ -55,22 +37,24 @@
 
             <div class="sorting-container portfolio-3">
                 <div class="grid-sizer w50"></div>
-                <div class="sorting-item w50 filter-1">
+                @foreach($portfolios as $index=>$item)
+                <div class="sorting-item w50 filter-{{$index+1}}">
                     <div class="portfolio-preview-3">
-                        <a class="lightbox" href="img/thumbnail-70.jpg">
-                            <img class="preview" src="img/thumbnail-70.jpg" alt="" />
+                        <a class="lightbox" href="{{$item->portfolio_img_url}}">
+                            <img class="preview" src="{{$item->portfolio_img_url}}" alt="" />
                             <span class="portfolio-hover-3">
                                 <span class="bg-layer"></span>
                                 <span class="frame-layer"></span>
                                 <span class="align">
-                                    <span class="title h3 light">Sense the spirit of Asian culture.</span>
+                                    <span class="title h3 light">{{$item->portfolio_title}}</span>
                                 </span>
                             </span>
                         </a>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="sorting-item w50 filter-2">
+  <!--               <div class="sorting-item w50 filter-2">
                     <div class="portfolio-preview-3">
                         <a class="lightbox" href="img/thumbnail-71.jpg">
                             <img class="preview" src="img/thumbnail-71.jpg" alt="" />
@@ -143,7 +127,7 @@
                             </span>
                         </a>
                     </div>
-                </div>
+                </div> -->
 
             </div>
     
@@ -277,6 +261,4 @@
     <!-- lightbox -->
     <link href="/css/simplelightbox.css" rel="stylesheet" type="text/css" />
     <script src="/js/simple-lightbox.min.js"></script>
-
-</body>
-</html>
+@endsection

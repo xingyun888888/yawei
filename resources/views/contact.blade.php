@@ -1,38 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/css/bootstrap.extension.css" rel="stylesheet" type="text/css" />
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="img/favicon.ico" />
-    <style>
-        #map-canvas{
-            vertical-align: middle
-        }
-        @media (max-width: 900px) {
-            .cell-view {
-                height:auto!important;
-            }
-            #map-canvas{
-                margin-top: 0;
-            }
-        }
-    </style>
-  	<title>ASD</title>
-</head>
-<body>
+@extends("layouts/header")
+@section("carousel")
     <!-- LOADER -->
     <div id="loader-wrapper"></div>
-    <!-- HEADER -->
-    <header class="type-3 transparent">
-	    @extends('layouts.header')
-    </header>
+
+@endsection
+@section("content")    
     <div id="content-block">
         <div class="fixed-background" style="background-image: url(img/background-4.jpg);">
             <div class="banner-shortcode">
@@ -54,18 +26,18 @@
                     <div class="cell-view full-screen-height text-center">
                         <div class="empty-space col-xs-b30"></div>
                         <article class="sa">
-                            <h3>Contact Us</h3>
+                            <h3>联系我们</h3>
                             <p>Et harum quidem rerum facilis est et expedita distinctio.</p>
                         </article>
                         <div class="empty-space col-xs-b25 col-sm-b50"></div>
                         <div class="sa col-xs-b10">
-                            <b>Tel.:</b> <a href="">+626 460 4061</a><br/>
+                            <b>电话:</b> <a href="">{{$contact->phone}}</a><br/>
                         </div>
                         <div class="sa col-xs-b10">
-                            <b>Adress:</b> 350 West Erie Street<br/>
+                            <b>地址:</b>{{$contact->address}}<br/>
                         </div>
                         <div class="sa col-xs-b10">
-                            <b>Email:</b> <a href="mailto:hello@tdhcreative.com">hello@tdhcreative.com</a>
+                            <b>邮箱:</b> <a href="mailto:hello@tdhcreative.com">{{$contact->email}}</a>
                         </div>
                     </div>
                 </div>
@@ -130,5 +102,4 @@
             marker.openInfoWindow(infoWindow);
         }
     </script>
-</body>
-</html>
+@endsection

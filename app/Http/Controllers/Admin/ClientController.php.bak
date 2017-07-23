@@ -9,48 +9,46 @@ use Illuminate\Http\Request;
 use Storage;
 
 
-use App\Models\HomeSmallImgModel;
+use App\Models\ClientModel;
 
 use App\Http\Requests;
 
-class HomeSmallImgController extends Controller
+class ClientController extends Controller
 {
     //
 	public function index(){
 	
 	  
-	  $homeSmallImgs = HomeSmallImgModel::all();
-	  return view("/admin/homeSmallImg")->with(["title"=>"首页小图","homeSmallImgs"=>$homeSmallImgs]);
+	  $clients = ClientModel::all();
+	  return view("/admin/client")->with(["title"=>"首页小图","clients"=>$clients]);
 	}
     
 	public function add(Request $request){	  
        if ($request->isMethod('post')) {
             $file = $request->file("picture");
             if($file)$url=$this->upload($file);
-			$smalltitle=$request->small_title;
-			$bigtitle=$request->big_title;
-			$describe=$request->service_describe;
+			$title=$request->title;
             
-            $input = ["id"=>NULL,"home_small_img"=>$url,"home_small_img_small_title"=>$smalltitle,"home_small_img_big_title"=>$bigtitle];
+            $input = ["id"=>NULL,"client_img"=>$url,"client_title"=>$title];
 
-			$post =HomeSmallImgModel::create($input);
+			$post =ClientModel::create($input);
             
-			return redirect("/admin/home_small_img");
+			return redirect("/admin/client");
             echo $url,$title,$describe;
 	   }
 	}
 	public function update(){
-	   $homeSmallImg = HomeSmallImgModel::all();
+	   $service = ClientModel::all();
 	   //dd($carousel[0]=>attributes);
-       foreach($homeSmallImg as $item){
+       foreach($servicee as $item){
 	     var_dump($item->title);
 	   }
 
 	}
 
 	public function remove(Request $request,$id){
-	   $homeSmallImg = HomeSmallImgModel::find($id);
-	   if($homeSmallImg->delete()){
+	   $service = ClientModel::find($id);
+	   if($service->delete()){
 	     echo "删除成功";
 	   
 	   }else{

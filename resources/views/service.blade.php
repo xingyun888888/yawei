@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no, minimal-ui"/>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="/css/bootstrap.extension.css" rel="stylesheet" type="text/css" />
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="/css/swiper.css" rel="stylesheet" type="text/css" />
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/img/favicon.ico" />
-  	<title>亞淮設計</title>
-</head>
-<body>
-    <!-- LOADER -->
-    <div id="loader-wrapper"></div>
-
-    <!-- HEADER -->
-    <header class="type-3 transparent">
-	   @extends('layouts.header')
-    </header>
-
+@extends("layouts/header")
+@section("carousel")
+  <div></div>
+@endsection
+@section("content")
     <div id="content-block">
 
         <div class="fixed-background" style="background-image: url(img/background-4.jpg);">
@@ -51,6 +32,7 @@
                 </div>
             </div>
             <div class="empty-space col-xs-b45 col-sm-b90"></div>
+            @foreach($services as $item)
             <div class="services-shortcode-1">
                 <div class="preview-wrapper">
                     <div class="icon"></div>
@@ -58,20 +40,20 @@
                     <div class="icon"></div>
                     <div class="icon"></div>
                     <div class="preview">
-                        <span class="text-mask" style="background-image: url(img/thumbnail-67.jpg);"><span class="text"><span class="text-align" data-letter="C"></span></span></span>
+                        <span class="text-mask" style="background-image: url({{$item->service_img}});"><span class="text"><span class="text-align" data-letter="C"></span></span></span>
                     </div>
                 </div>
                 <div class="content">
                     <div class="align">
-                        <div class="sl">Design / Web Design</div>
+                        <div class="sl">{{$item->service_smalltitle}}</div>
                         <div class="sa">
-                            <h4 class="h4 title">Creative ideas and new trends</h4>
-                            <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab ill inventore veritatis et quasi architecto beatae vita dicta sunt, explicabo.</p>
+                            <h4 class="h4 title">{{$item->service_describe}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="services-shortcode-1 style-1">
+        @endforeach
+      <!--       <div class="services-shortcode-1 style-1">
                 <div class="preview-wrapper">
                     <div class="icon"></div>
                     <div class="icon"></div>
@@ -130,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-md-12 text-center">
                     <article class="sa">
@@ -305,6 +287,4 @@
     <script src="/js/global.js"></script>
 
     <script src="/js/isotope.pkgd.min.js"></script>
-
-</body>
-</html>
+@endsection
