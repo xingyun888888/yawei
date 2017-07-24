@@ -9,46 +9,47 @@ use Illuminate\Http\Request;
 use Storage;
 
 
-use App\Models\TeamModel;
+use App\Models\OfferModel;
 
 use App\Http\Requests;
 
-class TeamController extends Controller
+class OfferController extends Controller
 {
     //
 	public function index(){
 	
 	  
-	  $teams = TeamModel::all();
-	  return view("/admin/team")->with(["title"=>"团队","teams"=>$teams]);
+	  $offers = OfferModel::all();
+	  return view("/admin/offer")->with(["title"=>"提供","offers"=>$offers]);
 	}
     
 	public function add(Request $request){	  
        if ($request->isMethod('post')) {
             $file = $request->file("picture");
             if($file)$url=$this->upload($file);
+            $author = $request->author;
 			$title=$request->title;
 			$describe=$request->describe;
             
-            $input = ["id"=>NULL,"team_img"=>$url,"team_title"=>$title,"team_describe"=>$describe];
+            $input = ["id"=>NULL,"offer_img"=>$url,"offer_title"=>$title,"offer_author"=>$author,"offer_describe"=>$describe];
 
-			$post =TeamModel::create($input);
+			$post =OfferModel::create($input);
             
-			return redirect("/admin/team");
+			return redirect("/admin/offer");
             echo $url,$title,$describe;
 	   }
 	}
 	public function update(){
-	   $service = TeamModel::all();
+	   $offers = OfferModel::all();
 	   //dd($carousel[0]=>attributes);
-       foreach($teams as $item){
+       foreach($offers as $item){
 	     var_dump($item->title);
 	   }
 
 	}
 
 	public function remove(Request $request,$id){
-	   $service = TeamModel::find($id);
+	   $service = OfferModel::find($id);
 	   if($service->delete()){
 	     echo "删除成功";
 	   

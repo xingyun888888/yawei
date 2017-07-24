@@ -95,7 +95,18 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin',
 	});
 	Route::post("/home_small_img/update","HomeSmallImgController@update");
     Route::get("/home_small_img/remove/{id}","HomeSmallImgController@remove");
+    
 
+
+	Route::get("/home_big_img","HomeBigImgController@index");
+    Route::post("/home_big_img/add","HomeBigImgController@add");
+    Route::get("/home_big_img/add",function(){
+	   return view("/admin/homeBigImgEdit")->with("title","编辑");
+	});
+	Route::post("/home_big_img/update","HomeBigImgController@update");
+    Route::get("/home_big_img/remove/{id}","HomeBigImgController@remove");
+
+    
 	
 	Route::get("/client","ClientController@index");
     Route::post("/client/add","ClientController@add");
@@ -107,7 +118,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin',
 
 
     Route::get("/team","TeamController@index");
-	Route::post("/team/upload","TeamController@upload");
+	Route::post("/team/upload","TeamController@add");
 	Route::get("/team/remove/{id}","TeamController@remove");
+
+
+
+    Route::get("offer","OfferController@index");
+    Route::post("/offer/add","OfferController@add");
+    Route::get("/offer/add",function(){
+	   return view("/admin/offerEdit")->with("title","编辑");
+	});
+	Route::post("/offer/update","OfferController@update");
+    Route::get("/offer/remove/{id}","OfferController@remove");
 
 });

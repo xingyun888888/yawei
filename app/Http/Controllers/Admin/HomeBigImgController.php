@@ -9,18 +9,18 @@ use Illuminate\Http\Request;
 use Storage;
 
 
-use App\Models\TeamModel;
+use App\Models\HomeBigImgModel;
 
 use App\Http\Requests;
 
-class TeamController extends Controller
+class HomeBigImgController extends Controller
 {
     //
 	public function index(){
 	
 	  
-	  $teams = TeamModel::all();
-	  return view("/admin/team")->with(["title"=>"团队","teams"=>$teams]);
+	  $homeBigImgs = HomeBigImgModel::all();
+	  return view("/admin/homeBigImg")->with(["title"=>"首页大图","homeBigImgs"=>$homeBigImgs]);
 	}
     
 	public function add(Request $request){	  
@@ -30,26 +30,26 @@ class TeamController extends Controller
 			$title=$request->title;
 			$describe=$request->describe;
             
-            $input = ["id"=>NULL,"team_img"=>$url,"team_title"=>$title,"team_describe"=>$describe];
+            $input = ["id"=>NULL,"home_big_img"=>$url,"home_big_img_title"=>$title,"home_big_img_describe"=>$describe];
 
-			$post =TeamModel::create($input);
+			$post =HomeBigImgModel::create($input);
             
-			return redirect("/admin/team");
+			return redirect("/admin/home_big_img");
             echo $url,$title,$describe;
 	   }
 	}
 	public function update(){
-	   $service = TeamModel::all();
+	   $homeBigImg = HomeBigImgModel::all();
 	   //dd($carousel[0]=>attributes);
-       foreach($teams as $item){
+       foreach($homeBigImg as $item){
 	     var_dump($item->title);
 	   }
 
 	}
 
 	public function remove(Request $request,$id){
-	   $service = TeamModel::find($id);
-	   if($service->delete()){
+	   $homeBigImg = HomeBigImgModel::find($id);
+	   if($homeBigImg->delete()){
 	     echo "删除成功";
 	   
 	   }else{

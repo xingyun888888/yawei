@@ -46,7 +46,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <article class="sa">
-                        <h3>Our team</h3>
+                        <h3>我们的团队</h3>
                         <p>Et harum quidem rerum facilis est et expedita distinctio.</p>
                     </article>
                     <div class="empty-space col-xs-b25 col-sm-b50"></div>
@@ -57,6 +57,62 @@
                     <div class="swiper-button-prev hidden"></div>
                     <div class="swiper-button-next hidden"></div>
                     <div class="swiper-wrapper">
+                    @foreach($teams as $item)
+                        <div class="swiper-slide"> 
+                            <div class="thumbnail-shortcode-5">
+                                <div class="content">
+                                    <div class="layer-1 border-image" style="border-image-source: url({{$item->team_img}});"></div>
+                                    <div class="layer-2"><img src="{{$item->team_img}}" alt="" /></div>
+                                </div>
+                                <div class="description">
+                                    <h6 class="h6 title">{{$item->team_title}}</h6>
+                                    <div class="sa small">{{$item->team_describe}}</div>
+                                </div>
+                                <div class="animation follow style-1">
+                                    <a class="entry" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <a class="entry" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a class="entry" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a class="entry" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach    
+                   <!--      <div class="swiper-slide"> 
+                            <div class="thumbnail-shortcode-5">
+                                <div class="content">
+                                    <div class="layer-1 border-image" style="border-image-source: url(img/thumbnail-63.jpg);"></div>
+                                    <div class="layer-2"><img src="img/thumbnail-transparent-2.png" alt="" /></div>
+                                </div>
+                                <div class="description">
+                                    <h6 class="h6 title">Mark Raily</h6>
+                                    <div class="sa small">Project Director</div>
+                                </div>
+                                <div class="animation follow style-1">
+                                    <a class="entry" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <a class="entry" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a class="entry" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a class="entry" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide"> 
+                            <div class="thumbnail-shortcode-5">
+                                <div class="content">
+                                    <div class="layer-1 border-image" style="border-image-source: url(img/thumbnail-64.jpg);"></div>
+                                    <div class="layer-2"><img src="img/thumbnail-transparent-3.png" alt="" /></div>
+                                </div>
+                                <div class="description">
+                                    <h6 class="h6 title">Stefany Jacobs</h6>
+                                    <div class="sa small">Graphic Designer</div>
+                                </div>
+                                <div class="animation follow style-1">
+                                    <a class="entry" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <a class="entry" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a class="entry" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a class="entry" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="swiper-slide"> 
                             <div class="thumbnail-shortcode-5">
                                 <div class="content">
@@ -110,61 +166,7 @@
                                     <a class="entry" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide"> 
-                            <div class="thumbnail-shortcode-5">
-                                <div class="content">
-                                    <div class="layer-1 border-image" style="border-image-source: url(img/thumbnail-62.jpg);"></div>
-                                    <div class="layer-2"><img src="img/thumbnail-transparent-1.png" alt="" /></div>
-                                </div>
-                                <div class="description">
-                                    <h6 class="h6 title">Linda Otis</h6>
-                                    <div class="sa small">Manager</div>
-                                </div>
-                                <div class="animation follow style-1">
-                                    <a class="entry" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    <a class="entry" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a class="entry" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a class="entry" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide"> 
-                            <div class="thumbnail-shortcode-5">
-                                <div class="content">
-                                    <div class="layer-1 border-image" style="border-image-source: url(img/thumbnail-63.jpg);"></div>
-                                    <div class="layer-2"><img src="img/thumbnail-transparent-2.png" alt="" /></div>
-                                </div>
-                                <div class="description">
-                                    <h6 class="h6 title">Mark Raily</h6>
-                                    <div class="sa small">Project Director</div>
-                                </div>
-                                <div class="animation follow style-1">
-                                    <a class="entry" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    <a class="entry" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a class="entry" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a class="entry" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide"> 
-                            <div class="thumbnail-shortcode-5">
-                                <div class="content">
-                                    <div class="layer-1 border-image" style="border-image-source: url(img/thumbnail-64.jpg);"></div>
-                                    <div class="layer-2"><img src="img/thumbnail-transparent-3.png" alt="" /></div>
-                                </div>
-                                <div class="description">
-                                    <h6 class="h6 title">Stefany Jacobs</h6>
-                                    <div class="sa small">Graphic Designer</div>
-                                </div>
-                                <div class="animation follow style-1">
-                                    <a class="entry" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
-                                    <a class="entry" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a class="entry" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a class="entry" href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="swiper-pagination relative-pagination"></div>
                 </div>
@@ -175,26 +177,28 @@
                 <div class="swiper-button-next visible-lg"></div>
                 <div class="swiper-container" data-space="30">
                     <div class="swiper-wrapper">
+                    @foreach($intros as $item)
                         <div class="swiper-slide">
                             <div class="row vertical-aligned-columns">
                                 <div class="col-sm-7 col-xs-b30 col-sm-b0">
                                     <div class="thumbnail-shortcode-6">
                                         <div class="content">
                                             <div class="layer-1 border border-image" style="border-image-source: url(img/thumbnail-65.jpg);"></div>
-                                            <div class="layer-2 background" style="background-image: url(img/thumbnail-66.jpg);"></div>
+                                            <div class="layer-2 background" style="background-image: url({{$item->intro_url}});"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="sa">
-                                        <h3>We can focus users attention on your design</h3>
-                                        <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum.</p>
+                                        <h3>{{$item->intro_title}}</h3>
+                                        <p>{{$item->intro_content}}</p>
                                         <a class="button style-2" href="#">read more</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
+                    @endforeach
+                       <!--  <div class="swiper-slide">
                             <div class="row vertical-aligned-columns">
                                 <div class="col-sm-7 col-sm-push-5 col-xs-b30 col-sm-b0">
                                     <div class="thumbnail-shortcode-6">
@@ -212,7 +216,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="swiper-pagination relative-pagination hidden-lg"></div>
                 </div>
@@ -221,7 +225,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <article class="sa">
-                        <h3>Our clients</h3>
+                        <h3>我们的客户</h3>
                         <p>Et harum quidem rerum facilis est et expedita distinctio.</p>
                     </article>
                     <div class="empty-space col-xs-b25 col-sm-b50"></div>

@@ -38,14 +38,28 @@
             <li id="collapseOne" class="panel-collapse collapse son">
                <a href="/admin/carousel" class="{{Request::path()=='admin/carousel'?'active':''}}">轮播图</a>
                <a href="/admin/home_small_img" class="{{Request::path()=='admin/home_small_img'?'active':''}}">底部小图</a>
+               <a href="/admin/home_big_img" class="{{Request::path()=='admin/home_big_img'?'active':''}}">大图</a>
              <!--   <a href="huodong_over.html">背景图</a>
                <a href="huodong_daishen.html">小图</a>
                <a href="huodong_pingjia.html">底部</a> -->
             </li>
             <li><a href="/admin/portfolio" class="{{Request::path()=='admin/portfolio'?'active':''}}"><span class="glyphicon glyphicon-tag"></span>作品展</a></li>
             <li><a href="{{url('/admin/concat')}}" class="{{Request::path()=='admin/concat'?'active':''}}"><span class="glyphicon glyphicon-usd"></span>联系我们</a></li>
-            <li><a href="{{url('/admin/service')}}"><span class="glyphicon glyphicon-th-large"></span>服务</a></li>
+
+
+            <!-- <li><a href="{{url('/admin/service')}}"><span class="glyphicon glyphicon-th-large"></span>服务</a></li> -->
+
+            
+               <li><a  data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-picture"></span>服务 <b class="caret"></b></a></li>
+            <li id="collapseTwo" class="panel-collapse collapse son">
+               <a href="{{url('/admin/service')}}">服务内容</a>
+               <a href="{{url('/admin/offer')}}">提供</a>
+            </li>
+
+
             <!-- <li><a href="news.html"><span class="glyphicon glyphicon-list-alt"></span>官方新闻</a></li> -->
+
+
              <li><a  data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="{{Request::path()=='admin/us'?'active':''}}"><span class="glyphicon glyphicon-picture"></span>关于我们 <b class="caret"></b></a></li>
             <li id="collapseTwo" class="panel-collapse collapse son">
                <a href="{{url('/admin/team')}}">团队成员</a>

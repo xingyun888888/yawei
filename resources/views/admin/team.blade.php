@@ -9,19 +9,19 @@
 			<button class="btn btn-info" type="submit" id="checkall" data-check="true">全选</button>
 		 </div>
 		<div class="row">
-        @for($i = 0; $i < count($team); $i++)
+        @for($i = 0; $i < count($teams); $i++)
 		  <div class="col-sm-6 col-md-3 ">
 			<div class="thumbnail text-center">
 			  <!-- <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1498493557&di=9a872642d6fc4a09e0f30a39f811cab5&src=http://pic48.nipic.com/file/20140912/7487939_223919315000_2.jpg" alt="..."> -->
-			  <img src="{{$team[$i]->team_img_url}}" alt="" style="width:100%;height:150px;">
+			  <img src="{{$teams[$i]->team_img}}" alt="" style="width:100%;height:150px;">
 			  <div class="caption">
-				<h4 style="">{{$team[$i]->team_name}}</h4>
-				<p>{{$team[$i]->team_position}}</p>
+				<h4 style="">{{$teams[$i]->team_title}}</h4>
+				<p>{{$teams[$i]->team_describe}}</p>
 				<p>
 				   <label>
                     <input type="checkbox" class="portfolio-select">
                    </label>
-				   <a href="#" class="btn btn-primary" role="button">编辑</a> <a href="/admin/portfolio/remove/{{$team[$i]->id}}" class="btn btn-danger" role="button">删除</a>
+				   <a href="#" class="btn btn-primary" role="button">编辑</a> <a href="/admin/portfolio/remove/{{$teams[$i]->id}}" class="btn btn-danger" role="button">删除</a>
 				</p>
 			  </div>
 			</div>
@@ -34,15 +34,15 @@
         
         <div class="modal-content">
 		  <div class="container-fluid" style="padding:50px;">
-            <form action="/admin/portfolio/upload" method="post" enctype="multipart/form-data" >
+            <form action="/admin/team/upload" method="post" enctype="multipart/form-data" >
 			      <input type="hidden" name="_token"         value="{{csrf_token()}}"/>
 				  <div class="form-group">
 					<label for="ename">姓名</label>
-					<input type="text" class="form-control" id="ename" name="ename"  placeholder="请输入姓名">
+					<input type="text" class="form-control" id="ename" name="title"  placeholder="请输入姓名">
 				  </div>
 				  <div class="form-group">
 					<label for="position">职位</label>
-					<input type="text" class="form-control" id="position" name="position"  placeholder="请输入职位">
+					<input type="text" class="form-control" id="title" name="describe"  placeholder="请输入职位">
 				  </div>
 				  <div class="form-group">
 					<label for="exampleInputFile">File input</label>

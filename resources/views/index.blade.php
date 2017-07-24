@@ -23,12 +23,14 @@
 
         <div class="container">
             <div class="empty-space col-xs-b60 col-sm-b120"></div>
+            @foreach($homeBigImgs as $item)
             <div class="text-center">
-                <img class="thumbnail-image col-xs-b20" src="img/thumbnail-46.jpg" alt="" />
-                <h6 class="h6 col-xs-b10">Your title image</h6>
-                <div class="sa middle">Et harum quidem rerum facilis est et expedita distinctio.</div>
+                <img class="thumbnail-image col-xs-b20" src="{{$item->home_big_img}}" alt="" />
+                <h6 class="h6 col-xs-b10">{{$item->home_big_img_title}}</h6>
+                <div class="sa middle">{{$item->home_big_img_describe}}</div>
             </div>
-            <div class="empty-space empty-space col-xs-b25 col-sm-b50"></div>
+            @endforeach
+         <!--    <div class="empty-space empty-space col-xs-b25 col-sm-b50"></div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="text-center">
@@ -46,7 +48,7 @@
                     </div>
                     <div class="empty-space empty-space col-xs-b25 col-sm-b50"></div>
                 </div>
-            </div>
+            </div> -->
             <div class="swiper-entry">
                 <div class="swiper-container" data-autoplay="3000">
                     <div class="swiper-button-prev hidden"></div>

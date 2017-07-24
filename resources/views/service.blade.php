@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <article class="sa">
-                        <h3>Our services</h3>
+                        <h3>我们的服务</h3>
                         <p>Et harum quidem rerum facilis est et expedita distinctio.</p>
                     </article>
                     <div class="empty-space col-xs-b25 col-sm-b50"></div>
@@ -116,26 +116,28 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <article class="sa">
-                        <h3>What we can offer</h3>
+                        <h3>我们可以提供什么</h3>
                         <p>Nemo enim ipsam voluptatem, quia voluptas sit</p>
                     </article>
                     <div class="empty-space col-xs-b25 col-sm-b50"></div>
                 </div>
             </div>
             <div class="row">
+            @foreach($offers as $item)
                 <div class="col-sm-4">
                     <div class="services-shortcode-2">
-                        <div class="icon"><img src="img/icon-2.png" alt="" /></div>
-                        <div class="sl">Design / Branding</div>
+                        <div class="icon"><img src="{{$item->offer_img}}" alt="" /></div>
+                        <div class="sl">{{$item->offer_author}}</div>
                         <div class="content">
                             <div class="sa middle">
-                                <h6>Development process</h6>
-                                <p>Lorem ipsum dolor sit amet, amit consecte tur adipiscing elit, sed do eiusmod tempor incididunt ut sit labore et dolore magna.</p>
+                                <h6>{{$item->offer_title}}</h6>
+                                <p>{{$item->offer_describe}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+            @endforeach
+              <!--   <div class="col-sm-4">
                     <div class="services-shortcode-2">
                         <div class="icon"><img src="img/icon-3.png" alt="" /></div>
                         <div class="sl">Design / Branding</div>
@@ -158,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="empty-space col-xs-b45 col-sm-b90"></div>
         </div>
